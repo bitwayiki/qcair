@@ -97,8 +97,7 @@ img {
 
 #contact button {
 	display: block;
-	margin: 0 auto;
-	margin-top: 10px;
+	margin: 10px auto;
 }
 
 
@@ -152,10 +151,9 @@ img {
 	height: 320px; 
 	width: 500px; 
 	border-radius: 4px;
-	margin-top: 15px;
 	padding-top: 15px;	
 	display: block;
-	margin: 0 auto;
+	margin: 15px auto;
 }
 
 
@@ -174,8 +172,7 @@ img {
 }
 
 #mission img {
-	margin: 0 auto;
-	margin-top: 10px;
+	margin: 10px auto;
 	display: block;
 }
 
@@ -183,8 +180,7 @@ img {
 
 #news .feed-images img {
 	padding: 15px;
-	margin-top: 10px;
-	margin: 0 auto;
+	margin: 10px auto;
 	display: block;
 }
 
@@ -196,5 +192,25 @@ img {
 #news .banner {
 	width: 100%;
 	padding: 0;
+}
+
+
+/* Login */
+
+#login {
+	text-align: center;
+}
+
+#login input {
+	width: 300px;
+	margin: 10px auto;
+	display: block;
+	margin-bottom: 10px;
+}
+
+#login a  {
+	display: block; 
+	font-size: 25px;
+	padding-top: 20px;
 }
 
