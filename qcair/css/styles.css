@@ -1,58 +1,200 @@
-ul li {
-	display: inline-block;
-	text-decoration: none;
-	font-size: 20px;
-	padding: 10px 10px 10px 10px;
-	margin-left: 15px;	
-	border-left-style: solid;
-	border-left-width: 0.1px;
-	border-left-color: gray;
-	font-family: 'Noto Sans';
+/* Styling According to 'Scopes/Views'*/
 
+/* Global Styles*/
 
+hr {
+	border-color: #ccc;
 }
 
-
-ul {
-	border-bottom-color: gray;
-	border-bottom-width: 0.5px;
-	border-bottom-style: solid;
+#views {
+	padding-top: 100px;
 }
 
 img {
-	box-shadow: -5px 10px 5px #888888;
+	box-shadow: 1px 1px 1px black;
 }
 
-a:select {
-	color: blue;
+
+
+/* End of Global */
+
+
+/* Home */
+
+#home .Banner {
+	display: block;
 }
 
-.banner {
-
-	border-radius: 4px;
-	height: 500px;
-	width: 500px;
+#home .Banner img {
+	box-shadow: -2px 2px 8px black;
 }
 
-.sub-header {
-	font-family: 'arvo';
+#home .Banner h2 {
+ color:#ffa000; 
+ font-family: Courgette, serif; 
+ font-size: 22px; 
+ text-align: center;
+}
+
+
+#home .services img, #home .Banner img {
+	display: block;
+	margin: 0 auto;
+}
+
+#home .services h2 , #home .services p, #home .main-features p {
 	text-align: center;
 }
 
-.sub-header-text {
-	font-family: 'Noto Sans';
+#home .featurette {
+	padding: 10px 0 10px 0;
+
 }
-.sub-space {
+
+#home .featurette img {
+	box-shadow: 1px 3px 4px black;
+}
+
+
+.president-message {
+
+ 
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	-moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    -webkit-column-width: 100px; /* Chrome, Safari, Opera */
+    -moz-column-width: 100px; /* Firefox */
+    column-width: 150px;
+
+}
+
+
+
+/* Contact */
+
+.form-group {
+	padding: 0 20px 10px 20px;
+}
+
+#contact p {
 	text-align: center;
-	margin-left: 40px;
+}
+
+#contact label {
 	font-weight: bold;
-	font-family: 'Noto Sans';
-	display: inline;
+	font-size: 1.5em;
 }
 
-.login {
+#contact input {
+	width: 100%;
+	height: 40px;
+}
 
+#contact textarea {
+	display: block;
+	width: 100%;
+}
+
+#contact button {
+	display: block;
+	margin: 0 auto;
 	margin-top: 10px;
-	width: 350px;
-	
 }
+
+
+/* meetus */
+
+
+#meetus p {
+	font-size: initial;
+	font-family: 'arvo', serif;
+}
+
+#meetus .invitaion-text, .team-header, #meetus h2, #meetus h3 {
+	text-align: center;
+}
+
+#meetus .invitaion-text p {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.teams-container {
+	font-size: 20px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	height: 50px;
+	width: 100%;
+
+}
+
+.teams-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.teams-container a {
+	text-align: center;
+	border-right: 1px solid black;
+	padding-right: 10px;
+	padding-left: 10px;
+	display: inline-block;
+}
+
+.teams-container a:last-child {
+	border-right: none;
+}
+
+#meetus .invitation-image-container img {
+	height: 320px; 
+	width: 500px; 
+	border-radius: 4px;
+	margin-top: 15px;
+	padding-top: 15px;	
+	display: block;
+	margin: 0 auto;
+}
+
+
+/* Mission */
+
+
+
+#mission h2, #mission h1,  #mission .sub-sections p {
+
+	text-align: center;
+
+}
+
+#mission .img-container {
+	display: relative;
+}
+
+#mission img {
+	margin: 0 auto;
+	margin-top: 10px;
+	display: block;
+}
+
+/* News  */
+
+#news .feed-images img {
+	padding: 15px;
+	margin-top: 10px;
+	margin: 0 auto;
+	display: block;
+}
+
+#news img {
+	margin-top: 30px;
+}
+
+
+#news .banner {
+	width: 100%;
+	padding: 0;
+}
+

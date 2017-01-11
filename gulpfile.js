@@ -94,9 +94,11 @@ app.use(bodyParser.urlencoded({
 
 app.post('/mail', (req, res)=>{
 
-	mailer(req.body, (err, wasSent)=>{
-		 res.send(wasSent);
-	});
+	console.log(req.body);
+
+	// mailer(req.body, (err, wasSent)=>{
+	// 	 res.send(wasSent);
+	// });
 
 });
 
@@ -312,18 +314,11 @@ app.put('/events/:id', (req, res)=>{
 	});
 });
 
-
-
-// app.get("/clientToken", function (req, res) {
-//   gateway.clientToken.generate({}, function (err, response) {
-  	
-//   	res.send( response.clientToken);
-
-  
-//   	//res.send(response.clientToken);
-
-//   });
-// });
+app.get("/clientToken", (req, res)=> {
+  gateway.clientToken.generate({}, (err, response)=> {
+  	res.send( response.clientToken);
+  });
+});
 
 
 
