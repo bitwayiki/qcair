@@ -28,8 +28,8 @@ There can only ever be one President. This President has functionalities that th
 			<th>PassWord</th>
 	</thead>
 	<tr>
-		<td>{{ current[0].username }}</td>
-		<td>{{ current[0].password }}</td>
+		<td>{{ current[0].username || "No President" }}</td>
+		<td>{{ current[0].password || "No Password"}}</td>
 		<td><button class="btn btn-default">President</button></td>
 	</tr>
 </table>

@@ -1,6 +1,6 @@
 
 
-angular.module('qcair', ['ngRoute', 'qcControllers', 'qcServices'])
+angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
 
 
 .config(function($routeProvider){
@@ -45,41 +45,41 @@ angular.module('qcair', ['ngRoute', 'qcControllers', 'qcServices'])
 			templateUrl: './views/dashboard.html'
 	    })
 	    .when('/presLogin', {
-	    	templateUrl: './views/presLogin.html',
+	    	templateUrl: 'views/backend/presLogin.html',
 	    	controller: 'loginCtrl'
 	    })
-	    .when('/predAccess', {
+	    .when('/presAccess', {
 	    	resolve: {
 			"check": function($location, $rootScope){
-				if(!$rootScope.pres){
-					$location.path('/login');
-				}
+				// if(!$rootScope.pres){
+				// 	$location.path('/login');
+				// }
 			}
 		},
 	    	controller: 'presCtrl',
-	    	templateUrl: './views/predAccess.html'
+	    	templateUrl: 'views/backend/predAccess.html'
 	    })
 	    .when('/presChange', {
 	    
-	    	templateUrl: './views/presChange.html',
+	    	templateUrl: 'views/backend/presChange.html',
 	    	controller: 'presCtrl'
 	    })
 	    .when('/adminAccess', {
 	    	resolve: {
 			"check": function($location, $rootScope){
-				if(!$rootScope.loggedIn){
-					$location.path('/login');
-				}
+				// if(!$rootScope.loggedIn){
+				// 	$location.path('/login');
+				// }
 			}
 		},
 	    	controller: 'adminCtrl',
-	    	templateUrl: './views/adminAccess.html'
+	    	templateUrl: 'views/backend/adminAccess.html'
 	    })
 	    .when('/processGreen', {
-	    	templateUrl: './views/accepted.html'
+	    	templateUrl: './views/payment-outcomes/accepted.html'
 	    })
 	    .when('/processRed', {
-	    	templateUrl: './views/declined.html'
+	    	templateUrl: './views/payment-outcomes/declined.html'
 	    })
 	    .otherwise({
 	    	redirectTo: '/'

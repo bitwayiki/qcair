@@ -2,9 +2,10 @@
 /*Navigation Menu Styles */
 
 #nav {
-	height: 70px;
+	top: 0;
 	left: 40px;
 	right: 40px;
+	height: 70px;
 	background-color: white;
 	position: fixed;
 	border-bottom: 1px solid black;

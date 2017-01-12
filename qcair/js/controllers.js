@@ -1,6 +1,6 @@
-angular.module('qcControllers', [])
+angular.module('qcair.controllers', ['qcair.services'])
 
-.controller('mailCtrl', ($scope)=>{
+.controller('mailCtrl', function($scope, $http){
 
 
 	$scope.submit = function(){
@@ -24,38 +24,24 @@ angular.module('qcControllers', [])
 
 })
 
-.controller('loginCtrl', ($scope)=>{
-
+.controller('loginCtrl', function($scope, $loginService){
+	
 	$scope.submitAdmin = function(){
-		$http.put('/login', $scope.admin)
-		.success(function(response){
-			console.log(response);
-			if(response === true){
-			
-				$rootScope.loggedIn = true;
-				$location.path('/adminAccess');
 
-			} else if(response === "president"){
-			
-				$rootScope.pres = true;
-				$location.path('/predAccess');
-				console.log('Im still listening');
-			} else{
-				$scope.wrong = "Wrong Password or Username";
-			}
-		})
-		.error(function(err){
-			console.log(err);
+		$scope.response = "";	
+
+		$loginService.authenticate($scope.admin).then(function(res){
+			$scope.response = res;
 		});
 	}
 
-
-
 })
-.controller('presCtrl', ($scope, $http)=>{
+
+.controller('presCtrl', function($scope, $http){
 
 
 	function refresh(){
+		//grab updates info
 			$http.get('/pres')
 				.success(function(response){
 					$scope.current = response;
@@ -256,10 +242,10 @@ angular.module('qcControllers', [])
 
 
 })
-.controller('paymentCtrl', ($scope)=>{
+.controller('paymentCtrl', function($scope){
 
 
 })
-.controller('adminCtrl', ($scope)=>{
+.controller('adminCtrl', function($scope){
 	
 });

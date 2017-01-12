@@ -2,7 +2,7 @@ var express 	= require('express'),
  	app 		= express(),
  	morgan 		= require('morgan'),
  	mongojs		= require('mongojs'), 	
- 	dburl		= "mongodb://qcair:qcairgc2016@ds017193.mlab.com:17193/qcair",
+ 	dburl		= "localhost",
 	dpres 		= mongojs(dburl, ['president']),
 	dusers 		= mongojs(dburl, ['users']),
 	dcontacts	= mongojs(dburl, ['contacts']),
@@ -111,10 +111,10 @@ app.get('/pres', function(req, res){
  });
 
 app.put('/pres/:id', (req, res)=>{
-	
+	//President is rewriting is own password and username to pass baton
 	/*generating salt and specifying iterations for password hashing */	
 	bcrypt.genSalt(12, (err, salt)=>{
-		/* Hashs Password connecting it to salt */
+		/* Hashes Password then connecting it to salt */
 		bcrypt.hash(req.body.password, salt, (err, hash)=>{
 			/* Editing Existing Presidents Info */
 			dpres.president.findAndModify({
