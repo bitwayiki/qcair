@@ -11,10 +11,10 @@ angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services', 'qcai
 		.when('/meetus', {
 			templateUrl: './views/meetus.html'
 		})
-		.when('/volunteer', {
+		.when('/donate', {
 			//improperly named
 			controller: 'paymentCtrl',
-			templateUrl: './views/volunteer.html'
+			templateUrl: './views/donate.html'
 		})
 		.when('/jobs', {
 			templateUrl: './views/teams/jobs.html'
