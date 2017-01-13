@@ -1,6 +1,6 @@
 
 
-angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
+angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services', 'qcair.filters'])
 
 
 .config(function($routeProvider){
@@ -48,9 +48,9 @@ angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
 	    .when('/presAccess', {
 	    	resolve: {
 			"check": function($location, $rootScope){
-				// if(!$rootScope.pres){
-				// 	$location.path('/login');
-				// }
+				if(!$rootScope.pres){
+					$location.path('/login');
+				}
 			}
 		},
 	    	controller: 'dashboardCtrl',
@@ -64,9 +64,9 @@ angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
 	    .when('/adminAccess', {
 	    	resolve: {
 			"check": function($location, $rootScope){
-				// if(!$rootScope.loggedIn){
-				// 	$location.path('/login');
-				// }
+				if(!$rootScope.loggedIn){
+					$location.path('/login');
+				}
 			}
 		},
 	    	controller: 'dashboardCtrl',

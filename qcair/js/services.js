@@ -87,7 +87,7 @@ angular.module('qcair.services', ['qcair.controllers'])
 
 	this.delete = function(route){
 
-		return $q(function(route){
+		return $q(function(resolve, reject){
 
 			$http.delete(route).success(function(){
 				resolve('Has been removed');
@@ -123,7 +123,6 @@ angular.module('qcair.services', ['qcair.controllers'])
 				.error(function(){
 					resolve(false);
 				});
-
 
 		});
 		

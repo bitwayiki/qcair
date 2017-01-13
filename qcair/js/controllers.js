@@ -1,4 +1,4 @@
-angular.module('qcair.controllers', ['qcair.services'])
+angular.module('qcair.controllers', ['qcair.services', 'qcair.filters'])
 
 .controller('mailCtrl', function($scope, $rootScope ,$mailService){
 
@@ -21,8 +21,6 @@ angular.module('qcair.controllers', ['qcair.services'])
 		   });
 		}
 	}
-
-
 })
 
 .controller('loginCtrl', function($scope, $loginService, $rootScope){
@@ -44,7 +42,7 @@ angular.module('qcair.controllers', ['qcair.services'])
 	//This is because they do the same exact things but pesAccess does a little more
 
 	function refresh(){
-		//This needs to be put into a service- Do when I have time
+		//This needs to be put into a service and rewritten/modularized- Do when I have time
 		//grab updates info
 			$http.get('/pres')
 				.success(function(response){
@@ -57,7 +55,7 @@ angular.module('qcair.controllers', ['qcair.services'])
 
 			$http.get('/contact')
 			.success(function(response){
-				console.log(response);
+				
 				$scope.contacts = response;
 			})
 			.error(function(err){
@@ -65,14 +63,13 @@ angular.module('qcair.controllers', ['qcair.services'])
 			});
 
 			$http.get('/event').success(function(response){
-				console.log(response);
+				
 				$scope.events = response;
 			});
 
 			$http.get('/admin')
 				.success(function(response){
 					$scope.admins = response;
-					console.log('successfully displayed users');
 				})
 				.error(function(err){
 					console.log('error at  :' + err);
@@ -116,6 +113,7 @@ angular.module('qcair.controllers', ['qcair.services'])
 	}
 
 	$scope.update = function(ref, object ,id){
+		 $rootScope.loading = true;
 		 //put request to update
 		 $dashboardService.update("/" + ref + "/" + id, object).then(function(){
 			$rootScope.loading = false;
@@ -148,6 +146,5 @@ angular.module('qcair.controllers', ['qcair.services'])
 
 })
 .controller('paymentCtrl', function($scope){
-
 
 });
