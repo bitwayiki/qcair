@@ -1,1 +1,22 @@
 mongodb://qcair:qcairgc2016@ds017193.mlab.com:17193/qcair
+
+
+	auth: {
+		user: 'quadcitiesair@gmail.com',
+		pass: 'qcairgc2016'
+	}
+
+		gateway = braintree.connect({
+  		environment: braintree.Environment.Sandbox,
+  		merchantId: "bzb26s8km9shdzbq",
+  		publicKey: "hm2qy8b8c3cjvdd2", 
+  		privateKey: "db4de26316d377c153e24384c676bd5d"
+	});
+
+
+// var gateway = braintree.connect({
+//   environment: braintree.Environment.Production,
+//   merchantId: "td3pg3ndnt7nz4g7",
+//   publicKey: "px75h6q828cr77kk",
+//   privateKey: "b3337d1f9406cab2f4841dbcc58c598a"
+// });

@@ -4,7 +4,7 @@
     <p class="sub-header-text">If you have any questions, do not hesitate to ask. One of our volunteers will get back to you within 48-72 hours. If you're in need of Assistance, complete the form with the subject 'Assistance'. To be a Volunteer add the subject "Volunteer" and likewise for Information Request "Info Request" We will reach out to you. We look forward to meeting you! </p>
   </div>
   
-  <form class="form-inline" post="/mail">
+  <form class="form-inline" name="mailForm" >
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" ng-model="mail.name" class="form-control" id="name" name="name" placeholder="Jane Doe" required>
@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="phone">Phone:</label>
-      <input  ng-model='mail.phone' class="form-control" id="phone" name="phone" placeholder="1(555)555-5555 or N/A" required>
+      <input  ng-model='mail.phone' class="form-control" id="phone" minlength="10" name="phone" placeholder="5305554596" required>
     </div>
     <div class="form-group">
       <label for="Subject">Subject:</label>
@@ -25,10 +25,10 @@
       <label for="content">Content:  </label>
       <textarea type="text" ng-model='mail.content' class="form-control" name="content" id="content" placeholder="Content" rows="10" cols="150"></textarea>
     </div>
-    <!-- Should be Input tag with ng-submit. Making button with the idea of future data manipulation and response -->
-    <button value="Send Message" ng-click="submit(mail)" class="btn btn-default btn-lg ">Send Message</button>
+    <!--Should really be an input using ng-submit | Change If I have time -->
+    <button ng-click="submit(mailForm.$valid)" class="btn btn-default btn-lg" type="submit" ng-disabled="!mail.name || !mail.email || !mail.phone || !mail.subject">Send Message </button>
   </form>
-  {{ response }}
+ <h3 style="text-align: center;"> {{ response }}</h3>
 </div>
 
 

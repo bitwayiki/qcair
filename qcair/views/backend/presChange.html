@@ -18,7 +18,7 @@ There can only ever be one President. This President has functionalities that th
 	<tr>
 		<td><input class="form-control" placeholder="Confirm Username" ng-model='pre.ucon'></input></td>
 		<td><input class="form-control" placeholder="Confirm Password" ng-model='pre.pcon'></input></td>
-		<button class="btn btn-warning" ng-click="rewrite(current[0]._id)">Change</button>
+		<button class="btn btn-warning" ng-disabled="!presi.username || !presi.password || !pre.ucon || !pre.pcon" ng-click="rewrite(current[0]._id)">Change</button>
 	</tr>
 </table>
 <h3 style="text-align: center;">Current President</h3>

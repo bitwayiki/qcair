@@ -27,13 +27,7 @@ var express 	= require('express'),
 	});
 
 
-// var gateway = braintree.connect({
-//   environment: braintree.Environment.Production,
-//   merchantId: "td3pg3ndnt7nz4g7",
-//   publicKey: "px75h6q828cr77kk",
-//   privateKey: "b3337d1f9406cab2f4841dbcc58c598a"
-// });
-/* Utilizing gulp for reloads when chances to scripts */
+/* Utilizing gulp for reloads when changes to scripts */
 gulp.task('styles', function(){
 	gulp.src('**/*.css')
 		.pipe(livereload());
@@ -72,9 +66,6 @@ dpres.on('connect', ()=>{
 	console.log('database connected, collection pres established')
 });
 
-/*The Start of All of App chaining */
-
-//.static is a middleware function that simply grabs all the static files from the specified directory
 app.use(express.static(__dirname + '/qcair'))
 
 
@@ -94,11 +85,11 @@ app.use(bodyParser.urlencoded({
 
 app.post('/mail', (req, res)=>{
 
-	console.log(req.body);
+	console.log(req);
 
-	// mailer(req.body, (err, wasSent)=>{
-	// 	 res.send(wasSent);
-	// });
+	mailer(req.body, (err, wasSent)=>{
+		 res.send(wasSent);
+	});
 
 });
 
@@ -275,13 +266,13 @@ app.put('/login', (req, res)=>{
 	});
 });
 
-app.get('/events', (req, res)=>{
+app.get('/event', (req, res)=>{
 	dcalendar.calendar.find((err, data)=>{
 		res.json(data);
 	});
 });
 
-app.post('/events', (req, res)=>{
+app.post('/event', (req, res)=>{
 	
 	dcalendar.calendar.insert(req.body, (err, docs)=>{
 		err ? console.log(err) : res.json(docs);
@@ -289,21 +280,21 @@ app.post('/events', (req, res)=>{
 	});
 });
 
-app.get('/events/:id', (req, res)=>{
+app.get('/event/:id', (req, res)=>{
 	
 	dcalendar.calendar.findOne({_id: mongojs.ObjectId(req.params.id)}, (err, data)=>{
 		err ? console.log(err) : res.json(data);
 	});
 });
 
-app.delete('/events/:id', (req, res)=>{
+app.delete('/event/:id', (req, res)=>{
 	
 	dcalendar.calendar.remove({_id: mongojs.ObjectId(req.params.id)}, (err, docs)=>{
 		err ? console.log(err) : res.json(docs);
 	});
 });
 
-app.put('/events/:id', (req, res)=>{
+app.put('/event/:id', (req, res)=>{
 	
 	dcalendar.calendar.findAndModify({
 		query: {_id: mongojs.ObjectId(req.params.id)},
@@ -315,9 +306,11 @@ app.put('/events/:id', (req, res)=>{
 });
 
 app.get("/clientToken", (req, res)=> {
+//Getting Token to make transaction from braintree
   gateway.clientToken.generate({}, (err, response)=> {
   	res.send( response.clientToken);
   });
+
 });
 
 

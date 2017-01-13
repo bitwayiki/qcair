@@ -6,8 +6,8 @@ var nodemailer	= require('nodemailer'),
 	port: 465,
 	secure: true,
 	auth: {
-		user: 'quadcitiesair@gmail.com',
-		pass: 'qcairgc2016'
+		user: 'mrterry06@gmail.com',
+		pass: 'Elfin123'
 	}
 },
 

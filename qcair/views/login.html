@@ -10,7 +10,7 @@
     
     <input class="form-control" ng-model='admin.password' type="password" id="inputPassword"  placeholder="Password" required>
 
-    <button class="btn btn-lg btn-default " ng-click='submitAdmin()'>Sign in</button>
+    <button class="btn btn-lg btn-default " ng-click='submitAdmin()' ng-disabled="!admin.user || !admin.password">Sign in</button>
         
     <p>{{response}}</p>    
       

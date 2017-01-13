@@ -22,39 +22,47 @@
 </head>
 <body ng-app="qcair">
     <div class="container">
+    	<!-- Including NavBar Everywhere -->
     	<div ng-include="'views/templates/nav.html'" ></div>
     	<div id="views" ng-view></div>
     	<hr>
+
+  		<!-- include Footer Everywhere -->
   		<div ng-include="'views/templates/footer.html'"></div>
+  	
+  		<!-- set $rootScope.loading to true when loading spinner needs to appear-->
 
-    <!-- Angular -->
-	<script type="text/javascript" src="lib/angular.js"></script>
-	<script type="text/javascript" src="lib/angular-route.js"></script>
-	<!-- modules -->
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
-	<script src="config.js"></script>
+  		<img id="loading-spinner" ng-if="$root.loading" src="assets/spin.svg">
+    
 
-	<!--Braintree -->
-	<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
-	<script>
-	 function runBrain(){
-		var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function(){
-				if(xhttp.readyState == 4 && xhttp.status == 200){
-					var token = xhttp.responseText;
+	    <!-- Angular -->
+		<script type="text/javascript" src="lib/angular.js"></script>
+		<script type="text/javascript" src="lib/angular-route.js"></script>
+		<!-- modules -->
+	    <script src="js/controllers.js"></script>
+	    <script src="js/services.js"></script>
+		<script src="config.js"></script>
 
-					braintree.setup(token, 'custom', { id: 'checkout' });
+		<!--Braintree -->
+		<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+		<script>
+		 function runBrain(){
+			var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function(){
+					if(xhttp.readyState == 4 && xhttp.status == 200){
+						var token = xhttp.responseText;
+
+						braintree.setup(token, 'custom', { id: 'checkout' });
 
 
 
+					}
 				}
-			}
 
-		xhttp.open("GET", '/clientToken', true);
-		xhttp.send();
-		}	
-	</script>	
+			xhttp.open("GET", '/clientToken', true);
+			xhttp.send();
+			}	
+		</script>	
     </div>
 </body>
 </html>

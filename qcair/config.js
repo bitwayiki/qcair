@@ -41,9 +41,6 @@ angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
 			templateUrl: './views/login.html',
 			controller: 'loginCtrl'
 		})
-		.when('/dashboard', {
-			templateUrl: './views/dashboard.html'
-	    })
 	    .when('/presLogin', {
 	    	templateUrl: 'views/backend/presLogin.html',
 	    	controller: 'loginCtrl'
@@ -56,13 +53,13 @@ angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
 				// }
 			}
 		},
-	    	controller: 'presCtrl',
+	    	controller: 'dashboardCtrl',
 	    	templateUrl: 'views/backend/predAccess.html'
 	    })
 	    .when('/presChange', {
 	    
 	    	templateUrl: 'views/backend/presChange.html',
-	    	controller: 'presCtrl'
+	    	controller: 'dashboardCtrl'
 	    })
 	    .when('/adminAccess', {
 	    	resolve: {
@@ -72,7 +69,7 @@ angular.module('qcair', ['ngRoute', 'qcair.controllers', 'qcair.services'])
 				// }
 			}
 		},
-	    	controller: 'adminCtrl',
+	    	controller: 'dashboardCtrl',
 	    	templateUrl: 'views/backend/adminAccess.html'
 	    })
 	    .when('/processGreen', {

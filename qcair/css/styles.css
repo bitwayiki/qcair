@@ -14,7 +14,15 @@ img {
 	box-shadow: 1px 1px 1px black;
 }
 
-
+#loading-spinner {
+	position: absolute;
+	bottom: 0;
+	top: 40%;
+	left: 0;
+	right: 0;
+	margin: 0 auto 0 auto;
+	height: 100px;
+}
 
 /* End of Global */
 
