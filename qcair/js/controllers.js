@@ -145,6 +145,10 @@ angular.module('qcair.controllers', ['qcair.services', 'qcair.filters'])
 	}
 
 })
-.controller('paymentCtrl', function($scope){
+.controller('paymentCtrl', function($scope, $http){
+	//Prolly need Braintree-Angular Module for simplier execution
+	$http.get('/clientToken').success(function(token){
+		setupBrainTree(token);
+	});
 
 });

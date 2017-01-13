@@ -45,25 +45,9 @@
 		<script src="config.js"></script>
 
 		<!--Braintree -->
-		<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
-		<script>
-		 function runBrain(){
-			var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function(){
-					if(xhttp.readyState == 4 && xhttp.status == 200){
-						var token = xhttp.responseText;
-
-						braintree.setup(token, 'custom', { id: 'checkout' });
-
-
-
-					}
-				}
-
-			xhttp.open("GET", '/clientToken', true);
-			xhttp.send();
-			}	
-		</script>	
+		<!-- <script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script> -->
+		<script type="text/javascript" src="lib/braintree.js"></script>
+		<script type="text/javascript" src="js/braintree-setup.js"></script>
     </div>
 </body>
 </html>

@@ -21,9 +21,9 @@ var express 	= require('express'),
 	/* Key to Access Braintree API */
 	gateway = braintree.connect({
   		environment: braintree.Environment.Sandbox,
-  		merchantId: "bzb26s8km9shdzbq",
-  		publicKey: "hm2qy8b8c3cjvdd2", 
-  		privateKey: "db4de26316d377c153e24384c676bd5d"
+  		merchantId: "xxxxxxxxxx",
+  		publicKey:  "xxxxxxxxxx", 
+  		privateKey: "xxxxxxxxxx"
 	});
 
 
